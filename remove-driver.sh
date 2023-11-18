@@ -34,14 +34,14 @@ DRV_NAME="rtl8821cu"
 DRV_VERSION="5.12.0.4"
 MODULE_NAME="8821cu"
 
-#KARCH="$(uname -m)"
+#KARCH="aarch64"
 if [ -z "${KARCH+1}" ]; then
-	KARCH="$(uname -m)"
+	KARCH="aarch64"
 fi
 
-#KVER="$(uname -r)"
+#KVER="6.1.0-rpi6-rpi-v8"
 if [ -z "${KVER+1}" ]; then
-	KVER="$(uname -r)"
+	KVER="6.1.0-rpi6-rpi-v8"
 fi
 
 MODDESTDIR="/lib/modules/${KVER}/kernel/drivers/net/wireless/"

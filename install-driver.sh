@@ -35,19 +35,19 @@ DRV_VERSION="5.12.0.4"
 MODULE_NAME="8821cu"
 
 
-#KARCH="$(uname -m)"
+#KARCH="$(aarch64 -m)"
 if [ -z "${KARCH+1}" ]; then
-	KARCH="$(uname -m)"
+	KARCH="aarch64"
 fi
 
-#KVER="$(uname -r)"
+#KVER="6.1.0-rpi6-rpi-v8"
 if [ -z "${KVER+1}" ]; then
-	KVER="$(uname -r)"
+	KVER="6.1.0-rpi6-rpi-v8"
 fi
 
-#GARCH="$(uname -m | sed -e "s/i.86/i386/; s/ppc/powerpc/; s/armv.l/arm/; s/aarch64/arm64/; s/riscv.*/riscv/;")"
+#GARCH="$(aarch64 -m | sed -e "s/i.86/i386/; s/ppc/powerpc/; s/armv.l/arm/; s/aarch64/arm64/; s/riscv.*/riscv/;")"
 if [ -z "${GARCH+1}" ]; then
-	GARCH="$(uname -m | sed -e "s/i.86/i386/; s/ppc/powerpc/; s/armv.l/arm/; s/aarch64/arm64/; s/riscv.*/riscv/;")"
+	GARCH="$(echo "aarch64" | sed -e "s/i.86/i386/; s/ppc/powerpc/; s/armv.l/arm/; s/aarch64/arm64/; s/riscv.*/riscv/;")"
 fi
 
 DRV_DIR="$(pwd)"
@@ -105,7 +105,7 @@ if ! command -v make >/dev/null 2>&1; then
 fi
 
 # check to see if the correct header files are installed
-if [ ! -d "/lib/modules/$(uname -r)/build" ]; then
+if [ ! -d "/lib/modules/6.1.0-rpi6-rpi-v8/build" ]; then
 	echo "Your kernel header files aren't properly installed."
 	echo "Please consult your distro documentation or user support forums."
 	echo "Once the header files are properly installed, please run \"sudo ./${SCRIPT_NAME}\""
