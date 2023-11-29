@@ -40,9 +40,9 @@ if [ -z "${KARCH+1}" ]; then
 	KARCH="aarch64"
 fi
 
-#KVER="6.1.21-v8+"
+#KVER="6.1.0-rpi6-rpi-v8"
 if [ -z "${KVER+1}" ]; then
-	KVER="6.1.21-v8+"
+	KVER="6.1.0-rpi6-rpi-v8"
 fi
 
 #GARCH="$(aarch64 -m | sed -e "s/i.86/i386/; s/ppc/powerpc/; s/armv.l/arm/; s/aarch64/arm64/; s/riscv.*/riscv/;")"
@@ -105,7 +105,7 @@ if ! command -v make >/dev/null 2>&1; then
 fi
 
 # check to see if the correct header files are installed
-if [ ! -d "/lib/modules/6.1.21-v8+/build" ]; then
+if [ ! -d "/lib/modules/6.1.0-rpi6-rpi-v8/build" ]; then
 	echo "Your kernel header files aren't properly installed."
 	echo "Please consult your distro documentation or user support forums."
 	echo "Once the header files are properly installed, please run \"sudo ./${SCRIPT_NAME}\""
